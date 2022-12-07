@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { modifyUser, getUser } from '../../api/users';
+import { modifyUser, getUser, addUser } from '../../api/users';
 import { useAsync } from 'react-async';
 import { useFormik } from 'formik';
 import TextField from '@mui/material/TextField';
@@ -40,10 +40,15 @@ const EditUser = () => {
     initialValues: user,
     enableReinitialize: true,
     onSubmit: async (values) => {
-      await modifyUser(user.id, values);
+      if (userId) {
+        await modifyUser(userId, values);
+      } else {
+        await addUser(values);
+      }
       navigate('/users');
     },
   });
+
   return (
     <Form onSubmit={formik.handleSubmit}>
       <FieldContainer>

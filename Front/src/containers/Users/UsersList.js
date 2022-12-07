@@ -28,7 +28,6 @@ const UsersList = () => {
   const { data } = useAsync({ promiseFn: getUsers });
 
   const users = data?.data || [];
-  console.log('first ', users);
   let navigate = useNavigate();
   return (
     <>
@@ -52,7 +51,12 @@ const UsersList = () => {
                 </TableCell>
                 <TableCell>{user.email}</TableCell>
                 <TableCell>
-                  <IconButton color="secondary">
+                  <IconButton
+                    onClick={async () => {
+                      navigate(`/users/${user.id}/edit`);
+                    }}
+                    color="secondary"
+                  >
                     <EditIcon />
                   </IconButton>
                   <IconButton color="secondary" onClick={async () => {}}>
