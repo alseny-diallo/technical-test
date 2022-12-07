@@ -112,6 +112,14 @@
     mikro-orm "^5.1.2"
     reflect-metadata "0.1.13"
 
+"@mikro-orm/entity-generator@5.1.2":
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@mikro-orm/entity-generator/-/entity-generator-5.1.2.tgz#9a0b5a95d2d2b66c53c8b511be4f7beeed13e990"
+  integrity sha512-FrQSu9TEakx7522H65A+i8YWXhmQ9RhAJUFMzVALXgYH5CybOY1m+uDnGOYMs0iOG6sqs2pzmDtjdO7/2IOLBw==
+  dependencies:
+    "@mikro-orm/knex" "^5.1.2"
+    fs-extra "10.0.1"
+
 "@mikro-orm/knex@^5.1.2":
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/@mikro-orm/knex/-/knex-5.1.2.tgz#0fb88e3c187718022157e93edc32fd4e173c7666"
