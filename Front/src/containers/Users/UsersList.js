@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { getUsers } from '../../api/users';
+import { getUsers, deleteUser } from '../../api/users';
 import { useAsync } from 'react-async';
 import IconButton from '@mui/material/IconButton';
 import Table from '@mui/material/Table';
@@ -59,7 +59,13 @@ const UsersList = () => {
                   >
                     <EditIcon />
                   </IconButton>
-                  <IconButton color="secondary" onClick={async () => {}}>
+                  <IconButton
+                    color="secondary"
+                    onClick={async () => {
+                      await deleteUser(user.id);
+                      navigate('/user');
+                    }}
+                  >
                     <DeleteIcon />
                   </IconButton>
                 </TableCell>

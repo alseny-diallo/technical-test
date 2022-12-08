@@ -63,5 +63,16 @@ export class UserController {
     await em.persistAndFlush(result);
     return result;
   }
+
+  @Delete('/:id',{transformResponse:false})
+  @ResponseSchema(User)
+  async remove(@Param('id') id: number){
+    const em = this.appService.getEntityManager();
+    const user = await(
+      await em.getRepository<User>('User').findOneOrFail({ id }, { failHandler: () => new NotFoundError() })
+  
+    )
+    return await em.getRepository<User>('User').nativeDelete(user);
+  }
   
 }
